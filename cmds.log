@@ -1,0 +1,128 @@
+# where i download dataset
+  
+167  pip install kaggle
+  168  kaggle datsets list -s Avocado
+  169  vim kaggle.json
+  170  kaggle datsets list -s Avocado
+  171  rm kaggle.json
+  172  cd home
+  173  cd ricques_nguyen
+  174  cd .kaggle
+  175  ls
+  176  vim kaggle.json
+  177  cd ..
+  178  kaggle datsets list -s Avocado
+  179  chmod 600 /home/ricques_nguyen/.kaggle/kaggle.json
+  180  kaggle datasets list -s Avocado
+  181  kaggle datasets list -s Avocado sales
+  182  kaggle datasets list -s "Avocado sales 2015-2021 (US centric)
+  183  kaggle datasets list -s kaggle datasets download -d valentinjoseph/avocado-sales-20152021-us-centric
+  184  kaggle datasets download -d valentinjoseph/avocado-sales-20152021-us-centric
+  185  ls
+  186  gunzip avocado-sales-20152021-us-centric.zip
+  187  sudo apt-get install unzip
+  188  mkdir a5
+  189  unzip avocado-sales-20152021-us-centric.zip -d a5
+  190  ls
+  191  rm avocado-sales-20152021-us-centric.zip
+  192  ls
+  193  clear
+  194  cd a5
+  195  ls
+
+#counting lines
+  196  head -10 avocado cleaned.csv
+  197  mv "avocado cleaned.csv" avocado.csv
+  198  ls
+  199  head avocado.csv
+  200  wc -l acocado.csv
+  201  wc -l avocado.csv
+  202  head -1 avocado.csv
+  203  head -n 1 avocado.csv | awk '{print NF}'
+  204  awk -F',' '{print NF; exit}' avocado.csv 
+  205  head -n2 avocado.csv | cut -d ',' -f1
+  206  head -n2 avocado.csv |tail -n1| cut -d ',' -f1
+  207  tail -n1 avocado.csv | cut -d ',' -f1
+  208  awk -F ',' '{print $1}' avocado.csv | sort -u | head -n1
+  209  awk -F ',' '{print $2}' avocado.csv | sort -u | head -n1
+  210  awk -F ',' '{print $2}' avocado.csv | sort -u | tail -n1
+  211  awk -F ',' '{print $2}' avocado.csv | sort -u | tail -n2
+  212  awk -F ',' '{print $2}' avocado.csv | sort -u
+  213  awk -F ',' '{print $2}' avocado.csv | sort -u | head -n1
+  214  awk -F ',' '{print $2}' avocado.csv | sort -u | tail -n2
+  215  head -n2 avocado.csv | cut -d ',' -f1
+  216  awk -F',' '{print NF; exit}' avocado.csv 
+  217  head -n 1 avocado.csv | awk '{print NF}'
+  218  head -1 avocado.csv
+  219  clear
+  220  head -1 avocado.csv
+  221  awk -F ',' '{print $2}' avocado.csv | sort -u | head -n1
+  222  awk -F ',' '{print $2}' avocado.csv | sort -u | tail -n2
+  223  awk -F ',' '{print $3}' avocado.csv | sort -u | head -n1
+  224  awk -F ',' '{print $3}' avocado.csv | sort -u | tail -n2
+  225  awk -F ',' '{print $4}' avocado.csv | sort -u | tail -n2
+  226  awk -F ',' '{print $4}' avocado.csv | sort -u | head -n1
+  227  awk -F ',' '{print $5}' avocado.csv | sort -u | tail -n2
+  228  awk -F ',' '{print $5}' avocado.csv | sort -u | head -n1
+  229  awk -F ',' '{print $6}' avocado.csv | sort -u | tail -n2
+  230  awk -F ',' '{print $6}' avocado.csv | sort -u | head -n1
+  231  awk -F ',' '{print $7}' avocado.csv | sort -u | tail -n2
+  232  awk -F ',' '{print $7}' avocado.csv | sort -u | head -n1
+  233  awk -F ',' '{print $8}' avocado.csv | sort -u | tail -n2
+  234  awk -F ',' '{print $8}' avocado.csv | sort -u | head -n1
+  235  awk -F ',' '{print $9}' avocado.csv | sort -u | tail -n2
+  236  awk -F ',' '{print $9}' avocado.csv | sort -u | head -n1
+  237  awk -F ',' '{print $10}' avocado.csv | sort -u | tail -n2
+  238  awk -F ',' '{print $10}' avocado.csv | sort -u | head -n1
+  239  awk -F ',' '{print $11}' avocado.csv | sort -u | tail -n2
+  240  awk -F ',' '{print $11}' avocado.csv | sort -u
+  241  awk -F ',' '{print $12}' avocado.csv | sort -u | head -n1
+  242  awk -F ',' '{print $12}' avocado.csv | sort -u | tail -n2
+  243  awk -F ',' '{print $13}' avocado.csv | sort -u
+  244  cat avocado.csv | awk -F',' '{ if(max<$2) { max=$2; row=$0}} END{print row}'
+  245  awk -F',' '$2>max{max=$2;r=$0|END{print r}' avocado.csv
+  246  awk -F',' '$2>max{max=$2;r=$0}END{print r}' avocado.csv
+  247  awk -F',' 'NR > 1 && $2 > max { max = $2; r = $0 } END { print r }' avocado.csv
+  248  awk -F',' 'NR > 1 && tolower($11) == tolower("organic") && $2 > max { max = $2; row = $0 } END { print row }' avocado.csv
+  249  awk -F',' 'NR > 1 && tolower($11) == tolower("conventional") && $2 > max { max = $2; row = $0 } END { print row }' avocado.csv
+  250  awk -F',' 'NR > 1 && tolower($11) == "organic" && ($2 < min || NR == 2) { min = $2; row = $0 } END { print row }' avocado.csv
+  251  awk -F',' 'NR > 1 && tolower($11) == tolower("organic") && $2 < min { min = $2; row = $0 } END { print row }' avocado.csv
+  252  awk -F',' 'tolower($11) == "organic" { print }' file.csv
+  253  awk -F',' 'tolower($11) == "organic" { print }' avocado.csv
+  254  clear
+  255  head -n1 avocado.csv
+  256  awk -F ',' '{print $13}' avocado.csv | sort -u
+  257  awk -F',' 'tolower($11) == "organic" && (NR > 1 && ($2 < min || min == "")) { min = $2; row = $0 } END { print row }' avocado.csv
+  258  awk -F',' 'tolower($11) == "conventional" && (NR > 1 && ($2 < min || min == "")) { min = $2; row = $0 } END { print row }' avocado.csv
+  259  awk -F',' 'NR > 1 && $3 > max { max = $3; row = $0 } END { print row }' file.csv
+  260  awk -F',' 'NR > 1 && $3 > max { max = $3; row = $0 } END { print row }' avocado.csv
+  261  awk -F',' 'NR == 1 { for (i=1; i<=NF; i++) { col[i,"min"]=$i; col[i,"max"]=$i } } NR > 1 { for (i=1; i<=NF; i++) { if ($i < col[i,"min"]) col[i,"min"]=$i; if ($i > col[i,"max"]) col[i,"max"]=$i } } END { for (i=1; i<=NF; i++) printf "Column %d: min=%s, max=%s\n", i, col[i,"min"], col[i,"max"] }' avocado.csv
+  262  awk -F',' 'NR > 1 { for (i=1; i<=NF; i++) { if ($i < col[i,"min"]) col[i,"min"]=$i; if ($i > col[i,"max"]) col[i,"max"]=$i } } END { for (i=1; i<=NF; i++) printf "Column %d: min=%s, max=%s\n", i, col[i,"min"], col[i,"max"] }' avocado.csv
+  263  awk -F ',' 'NR > 1 {if (NR == 2) {min=$2; max=$2} else {if ($2 < min) min=$2; if ($2 > max) max=$2}} END {printf "Range of AveragePrice: %f - %f\n", min, max}' avocado.csv
+  264  awk -F ',' 'NR > 1 {if (NR == 2) {min=$3; max=$3} else {if ($3 < min) min=$3; if ($3 > max) max=$3}} END {printf "Range of TotalVolume: %f - %f\n", min, max}' avocado.csv
+  265  awk -F ',' 'NR > 1 {if (NR == 2) {min=$4; max=$4} else {if ($4 < min) min=$4; if ($4 > max) max=$4}} END {printf "Range of plu4046: %f - %f\n", min, max}' avocado.csv
+  266  awk -F ',' 'NR > 1 {if (NR == 2) {min=$5; max=$5} else {if ($5 < min) min=$5; if ($5 > max) max=$5}} END {printf "Range of plu4225: %f - %f\n", min, max}' avocado.csv
+  267  awk -F ',' 'NR > 1 {if (NR == 2) {min=$6; max=$6} else {if ($6 < min) min=$6; if ($6 > max) max=$6}} END {printf "Range of plu4770: %f - %f\n", min, max}' avocado.csv
+  268  awk -F ',' 'NR > 1 {if (NR == 2) {min=$7; max=$7} else {if ($7 < min) min=$7; if ($7 > max) max=$7}} END {printf "Range of TotalBags: %f - %f\n", min, max}' avocado.csv
+  269  awk -F ',' 'NR > 1 {if (NR == 2) {min=$8; max=$8} else {if ($8 < min) min=$8; if ($8 > max) max=$8}} END {printf "Range of SmallBags: %f - %f\n", min, max}' avocado.csv
+  270  awk -F ',' 'NR > 1 {if (NR == 2) {min=$9; max=$9} else {if ($9 < min) min=$9; if ($9 > max) max=$9}} END {printf "Range of LargeBags: %f - %f\n", min, max}' avocado.csv
+  271  awk -F ',' 'NR > 1 {if (NR == 2) {min=$10; max=$10} else {if ($10 < min) min=$10; if ($10 > max) max=$10}} END {printf "Range of XLargeBags: %f - %f\n", min, max}' avocado.csv
+  272  awk -F',' 'NR > 1 && $3 > max { max = $3; row = $0 } END { print row }' avocado.csv
+  273  awk -F ',' '$13 != "TotalUS" && $3 > max {max=$3; r=$0} END{print r}' avocado.csv
+  274  tail -n +2 avocado.csv | awk -F ',' '$13 != "TotalUS" && $3 > max {max=$3; r=$0} END{print r}'
+  275  tail -n +2 avocado.csv | awk -F ',' '{gsub(/^[[:space:]]+|[[:space:]]+$/,"",$13); if($13 != "TotalUS" && $3 > max) {max=$3; r=$0}} END{print r}'
+  276  tail -n +2 avocado.csv | awk -F ',' '{gsub(/^[[:space:]]+|[[:space:]]+$/,"",$13); if($13 != "TotalUS") {if($3 > max[$13]) {max[$13]=$3; row[$13]=$0}}} END{for(i in max){print row[i]}}'
+  277  tail -n +2 avocado.csv | awk -F ',' '{gsub(/^[[:space:]]+|[[:space:]]+$/,"",$13); if($13 != "TotalUS" && tolower($11) == "organic") {if($3 > max) {max=$3; row=$0}}} END{print row}'
+  278  tail -n +2 avocado.csv | awk -F ',' '{gsub(/^[[:space:]]+|[[:space:]]+$/,"",$13); if($13 != "TotalUS" && tolower($11) == "organic") {if($3 > max[$13]) {max[$13]=$3; row[$13]=$0}}} END{for(i in max){print row[i]}}'
+  279  gnuplot
+  280  sudo apt-get update
+  281  sudo apt-get install gnuplot
+  282  gnuplot
+  283  export QT_DEBUG_PLUGINS=1
+  284  gnuplot
+  285  awk -F ',' '{gsub(/\//,"-",$1); print}' avocado.csv > avocadog.csv
+  286  ls
+  287  gnuplot
+  288  ls
+  289  cd a5
+  290  history > cmds.log
